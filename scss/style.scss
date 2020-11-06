@@ -1,0 +1,994 @@
+ /*
+Theme Name: EXO | Seo Landing page Template
+Author: Markhorthemes
+Author URI: https://themeforest.net/user/Markhorthemes
+Version: 1
+Description: Base theme for HTML5
+Text Domain: base
+Tags: one-column, two-columns, three-columns
+Theme URI: http://www.htmlbeans.com/demos/exo/
+*/
+
+
+/*------------------------------------------------------------------
+
+1. import files / import files
+2. Body / body
+3. Wrapper / #wrapper
+4. Header / #header
+5. Logo / .logo
+6. Nav / #nav
+7. Nav Active / .nav-active
+8. Main Slider / .main-slider
+9. Heading / .heading
+10. Heading2 / .heading2
+11. Service Holder / .service-holder
+12. Feature Sec / .feature-sec
+13. Header / .header
+14. Process Holder / .process-holder
+15. Testimonail Sec / .testimonail-sec
+16. Testimonail Slider / .testimonail-slider
+17. Price Sec / .price-sec
+18. Subscriber Sec / .subscriber-sec
+19. Newsletter Form / .newsletter-form
+20. Sign Form / .sign-form
+21. Socail Network / .socail-network
+22. Fancybox Skin / .fancybox-skin
+23. Popup Holder / .popup-holder
+24. Newsletter Block / .newsletter-block
+25. Footer / #footer
+26. Back Top / #back-top
+27. Loader Holder / .loader-holder
+
+-------------------------------------------------------------------*/
+
+
+
+// devices viewport width starts at:
+$breakpoints: (
+	xs-phone: 480px,
+	phone: 640px,
+	tablet: 768px,
+	desktop: 992px,
+	widescreen: 1200px
+);
+ 
+// keywords
+$media-expressions: (
+	'screen': 'screen',
+	'print': 'print',
+	'handheld': 'handheld',
+	'landscape': '(orientation: landscape)',
+	'portrait': '(orientation: portrait)',
+	'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
+	'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
+);
+
+// ligatured operators ≥ ≤
+
+
+/*------------------------------------------------------------------
+1. import files / import files
+-------------------------------------------------------------------*/
+
+//@import 'vendors/include-media';
+
+@import "bootstrap-custom";
+@import "vendors/bootstrap/variables";
+@import "vendors/bootstrap/mixins";
+
+@import 'base/mixins';
+@import 'base/helpers';
+
+
+/*------------------------------------------------------------------
+2. Body / body
+-------------------------------------------------------------------*/
+body{
+    font-weight: 400;
+    margin: 0;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    &.pattern1{background-image: url(images/patterns/pattern1.png);}
+    &.pattern2{background-image: url(images/patterns/pattern2.png);}
+    &.pattern3{background-image: url(images/patterns/pattern3.png);}
+    &.pattern4{background-image: url(images/patterns/pattern4.png);}
+    &.pattern5{background-image: url(images/patterns/pattern5.png);}
+    &.pattern6{background-image: url(images/patterns/pattern6.png);}
+    &.pattern7{background-image: url(images/patterns/pattern7.png);}
+    &.pattern8{background-image: url(images/patterns/pattern8.png);}
+    &.pattern9{background-image: url(images/patterns/pattern9.png);}
+    &.pattern10{background-image: url(images/patterns/pattern10.png);}
+    &.pattern11{background-image: url(images/patterns/pattern11.png);}
+    &.pattern12{background-image: url(images/patterns/pattern12.png);}
+    &.pattern13{background-image: url(images/patterns/pattern13.png);}
+    &.pattern14{background-image: url(images/patterns/pattern14.png);}
+}
+body.boxed-v #wrapper {
+    max-width: 80%;
+    margin: 20px auto;
+    border-radius: 3px;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+a{
+    &:hover,
+    &:focus,
+    &.active{
+        text-decoration: none;
+        outline: none;
+    }
+}
+.overlay{
+    position: relative;
+    z-index: 1;
+    &:before{
+        @include element(0, 0, 0, 0);
+        background: rgba(34, 49, 63, 0.8);
+    }
+}
+.bg-full{
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.bg-grey{ background: $clr-1; }
+.round{border-radius: 100%;}
+.md-round{border-radius: 3px;}
+.lg-round{border-radius: 45px;}
+.btn-primary{
+    font: 14px/16px $heading-font-family-sans;
+    font-weight: 700;
+    color: $white;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 15px 35px 14px 31px;
+    border: 1px solid $white;
+    background: none;
+    margin: 0 10px 0 0;
+    transition: all 0.25s linear;
+    &:hover{
+        border-color: $clr-1;
+        background: $clr-1;
+    }
+    &.active{
+        padding: 14px 48px 14px 44px;
+        border-color: $clr-1;
+        background: $clr-1;
+        &:hover{
+            border-color: $white;
+            background: none;
+        }
+    }
+}
+/*------------------------------------------------------------------
+3. Wrapper / #wrapper
+-------------------------------------------------------------------*/
+#wrapper{ @extend %boxreset; }
+/*------------------------------------------------------------------
+4. Header / #header
+-------------------------------------------------------------------*/
+#header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 9;
+    padding: 31px 0 0;
+    transition: all 0.25s linear;
+    &.sticky{
+        position: fixed;
+        padding: 15px 0;
+        height: auto !important;
+        box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.48);
+        .logo{ margin: 5px 10px 0 0; }
+    }
+    .nav-holder{
+        float: right;
+        padding: 3px 0 0;
+    }
+    .sign-list{
+        font: 12px/14px $heading-font-family-sans;
+        color: $white;
+        font-weight: 400;
+        overflow: hidden;
+        margin: 0 0 0 32px;
+        padding: 0 0 0 4px;
+        border-left: 1px solid $clr-2;
+        display: inline-block;
+        vertical-align: middle;
+        li{
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0 0 13px;
+        }
+        a{
+            padding: 11px 18px;
+            color: $white;
+            text-transform: uppercase;
+            text-align: center;
+            display: block;
+            transition: all 0.25s linear;
+            &:hover{ background: $clr-2; }
+            &.bg-grey{ font-weight: 700; }
+        }
+    }
+    .nav-opener{
+        @include font(20px, 25px);
+        color: $white;
+        display: inline-block;
+        vertical-align: middle;
+        .fa-times{ display: none; }
+    }
+}
+/*------------------------------------------------------------------
+5. Logo / .logo
+-------------------------------------------------------------------*/
+.logo{
+    width: 78px;
+    float: left;
+    margin: 0 10px 0 0;
+}
+/*------------------------------------------------------------------
+6. Nav / #nav
+-------------------------------------------------------------------*/
+#nav{
+    font: 12px/14px $heading-font-family-sans;
+    color: $white;
+    font-weight: 400;
+    overflow: hidden;
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    ul{
+        overflow: hidden;
+        margin: 0;
+        li{
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0 0 34px;
+            &:first-child{ margin: 0; }
+        }
+        .active{ color: $clr-1; }
+        a{
+            text-transform: uppercase;
+            color: $white;
+            display: block;
+            transition: all 0.25s linear;
+            &:hover{ color: $clr-1; }
+        }
+    }
+}
+/*------------------------------------------------------------------
+7. Nav Active / .nav-active
+-------------------------------------------------------------------*/
+.nav-active{
+    #header{
+        .nav-opener{
+            .fa-bars{ display: none; }
+            .fa-times{ display: block; }
+        }
+    }
+    #nav{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+#main{ overflow: hidden; }
+/*------------------------------------------------------------------
+8. Main Slider / .main-slider
+-------------------------------------------------------------------*/
+.main-slider{
+    overflow: hidden;
+    .slide{
+        font-family: $heading-font-family-sans;
+        font-weight: 300;
+        color: $white;
+        width: 100%;
+        overflow: hidden;
+        @include v-align(100vh, middle, after);
+        p{ margin: 0 0 42px; }
+    }
+    h1{
+        @include font(36px, 46px);
+        color: $white;
+        font-weight: 600;
+        margin: 0 0 10px;
+        letter-spacing: 1px;
+        opacity: 0;
+        transform: translateY(-60px);
+        transition: all 0.50s linear;
+    }
+    .slick-active{
+        h1{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+#particles-js,
+#bgvid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    z-index: -100;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    -webkit-transition: 1s opacity;
+    transition: 1s opacity;
+}
+#bgvid{ background: url("images/polina.jpg") no-repeat; }
+.tv {
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+.tv .screen {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0;
+    margin: auto;
+    position: absolute;
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s;
+}
+.tv .screen.active {opacity: 1;}
+/*------------------------------------------------------------------
+9. Heading / .heading
+-------------------------------------------------------------------*/
+.heading{
+    @include font(20px, 22px);
+    color: $clr-1;
+    font-weight: 600;
+    margin: 0 0 23px;
+    word-spacing: 1px;
+}
+/*------------------------------------------------------------------
+10. Heading2 / .heading2
+-------------------------------------------------------------------*/
+.heading2{
+    @include font(28px, 30px);
+    color: $clr-1;
+    font-weight: 600;
+    margin: 0 0 30px;
+    word-spacing: 1px;
+}
+/*------------------------------------------------------------------
+11. Service Holder / .service-holder
+-------------------------------------------------------------------*/
+.service-holder{
+    padding-top: 120px;
+    padding-bottom: 130px;
+    .holder{ margin-bottom: 120px; }
+    .service-list{
+        overflow: hidden;
+        font-weight: 300;
+        margin: 0;
+        li{
+            width: 33.33%;
+            display: inline-block;
+            vertical-align: middle;
+            padding: 0 30px;
+            margin: 0 -4px 0 0;
+        }
+        .icon{
+            width: 54px;
+            margin: 0 auto 32px;
+        }
+        p{ margin: 0; }
+    }
+    .txt-holder{
+        color: $clr-3;
+        font-weight: 300;
+        line-height: 30px;
+        padding: 76px 0 0;
+        p{ margin: 0 0 36px; }
+    }
+    .btn-primary{
+        @include font(16px, 18px);
+        font-weight: 600;
+        padding: 14px 23px 16px 22px;
+        margin: 0 0 30px;
+        border-width: 1px;
+        border-style: solid;
+        .fa{ margin: 0 0 0 11px; }
+        &:hover{ background: none; }
+    }
+    .img-holder{
+        width: 100%;
+        margin: 0 0 0 177px;
+    }
+}
+/*------------------------------------------------------------------
+12. Feature Sec / .feature-sec
+-------------------------------------------------------------------*/
+.feature-sec{
+    min-height: 668px;
+    padding-top: 103px;
+    padding-bottom: 120px;
+    .heading2{
+        color: $white;
+        line-height: 40px;
+        margin: 0 0 27px;
+    }
+    .txt-holder{
+        color: $white;
+        font-weight: 300;
+        line-height: 30px;
+        padding: 50px 60px 0 0;
+        p{ margin: 0 0 36px; }
+    }
+    .btn-primary{
+        @include font(16px, 18px);
+        font-weight: 600;
+        padding: 15px 24px 17px 23px;
+        margin: 0 0 30px;
+        border-width: 1px;
+        border-style: solid;
+        .fa{ margin: 0 0 0 11px; }
+        &:hover{ background: none; }
+    }
+    .img-holder{ margin: 0 0 0 -76px; }
+}
+/*------------------------------------------------------------------
+13. Header / .header
+-------------------------------------------------------------------*/
+.header{
+    line-height: 28px;
+    color: $clr-5;
+    margin: 0 0 61px;
+    h4{
+        @include font(34px, 36px);
+        color: $clr-1;
+        font-weight: 600;
+        margin: 0 0 29px;
+    }
+    p{ margin: 0; }
+}
+/*------------------------------------------------------------------
+14. Process Holder / .process-holder
+-------------------------------------------------------------------*/
+.process-holder{
+    padding-top: 124px;
+    padding-bottom: 104px;
+    .process-list{
+        overflow: hidden;
+        margin: 0;
+        color: $clr-6;
+        font-weight: 300;
+        position: relative;
+        z-index: 1;
+        &:before{
+            @include element(20px, 190px, auto, 190px);
+            border: 1px dashed $clr-7;
+        }
+        li{
+            width: 33.33%;
+            display: inline-block;
+            vertical-align: top;
+            padding: 0 20px;
+            margin: 0 -4px 0 0;
+        }
+        .num{
+            @include font(16px, 20px);
+            color: $white;
+            font-weight: 600;
+            font-family: $heading-font-family-sans;
+            @include size(43px, 43px);
+            display: block;
+            padding: 12px 5px;
+            margin: 0 auto 44px;
+            background: $clr-1;
+        }
+        h3{
+            @include font(18px, 20px);
+            font-weight: 600;
+            color: $clr-1;
+            margin: 0 0 20px;
+        }
+        .icon{
+            width: 53px;
+            margin: 0 auto 30px;
+        }
+    }
+}
+/*------------------------------------------------------------------
+15. Testimonail Sec / .testimonail-sec
+-------------------------------------------------------------------*/
+.testimonail-sec{
+    padding: 125px 0;
+    overflow: hidden;
+    background: $clr-8;
+    position: relative;
+    z-index: 1;
+    &:before{
+        @include element(auto, 0, -71px, 0);
+        background: url(images/bg.png) repeat-x 50% 0;
+        background-size: auto 100%;
+        height: 373px;
+    }
+    .header{ margin: 0 0 62px; }
+}
+/*------------------------------------------------------------------
+16. Testimonail Slider / .testimonail-slider
+-------------------------------------------------------------------*/
+.testimonail-slider{
+    overflow: hidden;
+    .slide{
+        width: 33.33%;
+        float: left;
+        padding: 0 55px 48px;
+        margin: 58px 15px 51px;
+        background: $white;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.09);
+        cite{
+            display: block;
+            margin: 0 0 30px;
+        }
+        strong{
+            font: 18px/20px $heading-font-family-sans;
+            color: $clr-1;
+            font-weight: 600;
+            display: block;
+            margin: 0 0 8px;
+        }
+        a{
+            @include font(12px, 14px);
+            font-weight: 300;
+            color: $clr-9;
+            font-style: normal;
+            display: block;
+        }
+        q{
+            display: block;
+            @include font(14px, 26px);
+            font-weight: 300;
+            font-style: italic;
+            color: $clr-9;
+        }
+    }
+    .img-holder{
+        width: 113px;
+        overflow: hidden;
+        margin: -57px auto 32px;
+    }
+    .slick-dots{
+        list-style-type: none;
+        overflow: hidden;
+        margin: 0 auto;
+        width: 106px;
+        padding: 0 0 0 10px;
+        li{
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0 0 10px;
+            &:first-child{ margin: 0; }
+        }
+        .slick-active{
+            button{
+                transform: scale(1.9, 1.9);
+            }
+        }
+        button{
+            @include size(7px, 7px);
+            border: none;
+            outline: none;
+            box-shadow: none;
+            display: block;
+            padding: 0;
+            text-indent: -9999px;
+            overflow: hidden;
+            background: $clr-10;
+            border-radius: 100%;
+        }
+    }
+}
+/*------------------------------------------------------------------
+17. Price Sec / .price-sec
+-------------------------------------------------------------------*/
+.price-sec{
+    overflow: hidden;
+    padding: 89px 0 132px;
+    .header{
+        color: $white;
+        margin: 0 0 120px;
+    }
+    h4{ color: $white; }
+    .price-holder{
+        color: $clr-11;
+        overflow: hidden;
+        background: $white;
+        margin: 0;
+        padding: 0 0 20px;
+        &.active{
+            color: $white;
+            background: $clr-1;
+            .price{
+                strong{ color: $white; }
+            }
+            .price-heading{
+                color: $clr-1;
+                background: $white;
+            }
+        }
+        li{
+            padding: 15px 15px 14px;
+            border-top: 1px solid $clr-12;
+            &:first-child{ border-top: none; }
+        }
+        .price{
+            padding: 28px 15px 14px;
+            border: none;
+            strong{
+                font: 36px/38px $heading-font-family-sans;
+                font-weight: 700;
+                color: $clr-1;
+                display: block;
+            }
+            span{
+                font: 14px/38px $heading-font-family-sans;
+                font-weight: 400;
+                display: block;
+                color: $clr-13;
+            }
+        }
+        .price-heading{
+            font: 16px/18px $heading-font-family-sans;
+            font-weight: 700;
+            color: $white;
+            border: none;
+            background: $clr-1;
+        }
+        .btns{ border: none; }
+        .btn-primary{
+            @include font(14px, 16px);
+            font-weight: 600;
+            border-width: 1px;
+            border-style: solid;
+            padding: 15px 49px 14px;
+            &:hover{ background: none; }
+        }
+    }
+}
+/*------------------------------------------------------------------
+18. Subscriber Sec / .subscriber-sec
+-------------------------------------------------------------------*/
+.subscriber-sec{
+    overflow: hidden;
+    padding-top: 120px;
+    padding-bottom: 128px;
+    .header{ margin: 0 0 33px; }
+}
+/*------------------------------------------------------------------
+19. Newsletter Form / .newsletter-form
+-------------------------------------------------------------------*/
+.newsletter-form{
+    @include size(430px, 60px);
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid $clr-14;
+    .form-control{
+        font: 15px/20px $heading-font-family-sans;
+        color: $clr-15;
+        font-weight: 300;
+        @include size(100%, 100%);
+        background: none;
+        border: none;
+        box-shadow: none;
+        outline: none;
+        border-radius: 0;
+        padding: 10px 80px 10px 16px;
+        @include placeholder{ color: $clr-15; }
+    }
+    .btn-sub{
+        position: absolute;
+        right: 9px;
+        top: 9px;
+        @include font(15px, 20px);
+        color: $white;
+        @include size(67px, 42px);
+        border: none;
+        outline: none;
+        text-align: center;
+        padding: 10px;
+        transition: all 0.25s linear;
+        &:hover{ background: $clr-1; }
+    }
+}
+/*------------------------------------------------------------------
+20. Sign Form / .sign-form
+-------------------------------------------------------------------*/
+.sign-form{
+    @extend %clearfix;
+    margin: 0 0 30px;
+    .form-group{ margin: 0; }
+    .form-control{
+        font: 15px/20px $heading-font-family-sans;
+        color: $clr-15;
+        font-weight: 300;
+        @include size(100%, 50px);
+        background: none;
+        border: 1px solid $clr-15;
+        box-shadow: none;
+        outline: none;
+        padding: 10px 20px;
+        margin: 0 0 20px;
+        @include placeholder{ color: $clr-15; }
+    }
+    textarea{
+        font: 15px/20px $heading-font-family-sans;
+        color: $clr-15;
+        font-weight: 300;
+        width: 100%;
+        min-height: 150px;
+        background: none;
+        border: 1px solid $clr-15;
+        box-shadow: none;
+        outline: none;
+        resize: none;
+        border-radius: 15px;
+        padding: 10px 20px;
+        margin: 0 0 20px;
+        @include placeholder{ color: $clr-15; }
+    }
+    .btn-sub{
+        @include font(15px, 20px);
+        color: $white;
+        @include size(100%, 42px);
+        border: none;
+        outline: none;
+        text-align: center;
+        padding: 10px;
+        transition: all 0.25s linear;
+        &:hover{ background: $clr-1; }
+    }
+    .has-error .form-control{
+        color: red;
+        border-color: red;
+        @include placeholder{ color: red; }
+    }
+    .form-message{
+        color: $white;
+        font-size: 11px;
+        font-weight: 600;
+        position: relative;
+        &:after{
+            top: 14px;
+            left: 17px;
+            width: 20px;
+            content: "";
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            text-align: center;
+            font-family:'FontAwesome';
+        }
+        &.error{
+            margin: 0 0 20px;
+            background: #ff3333;
+            padding: 15px 5px 13px 50px;
+            &:after{
+                content:"\f00d";
+                background: #cc2929;
+            }
+        }
+        &.success{
+            margin: 0 0 20px;
+            background: #698cf0;
+            padding: 15px 5px 13px 50px;
+            &:after{
+                content:"\f00c";
+                background: #5470c0;
+            }
+        }
+    }
+}
+/*------------------------------------------------------------------
+21. Socail Network / .socail-network
+-------------------------------------------------------------------*/
+.socail-network{
+    @include font(13px, 15px);
+    color: $clr-19;
+    overflow: hidden;
+    margin: 0;
+    li{
+        float: left;
+        margin: 0 8px 0 0;
+    }
+    a{
+        @include size(32px, 32px);
+        color: $clr-19;
+        border-radius: 100%;
+        text-align: center;
+        padding: 8px;
+        display: block;
+        border: 1px solid $clr-19;
+        transition: all 0.25s linear;
+        &:hover{
+            &.facebook{
+                border-color: $clr-21;
+                color: $clr-21;
+            }
+            &.twitter{
+                border-color: $clr-22;
+                color: $clr-22;
+            }
+            &.google{
+                border-color: $clr-23;
+                color: $clr-23;
+            }
+            &.tumblr{
+                border-color: $clr-24;
+                color: $clr-24;
+            }
+            &.yelp{
+                border-color: $clr-25;
+                color: $clr-25;
+            }
+        }
+    }
+}/*------------------------------------------------------------------
+22. Fancybox Skin / .fancybox-skin
+-------------------------------------------------------------------*/
+.fancybox-skin{ padding: 0 !important; }
+/*------------------------------------------------------------------
+23. Popup Holder / .popup-holder
+-------------------------------------------------------------------*/
+.popup-holder {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+}
+/*------------------------------------------------------------------
+24. Newsletter Block / .newsletter-block
+-------------------------------------------------------------------*/
+.newsletter-block{
+    overflow: hidden;
+    width: 550px;
+    padding: 40px;
+    color: $clr-1;
+    h2{
+        @include font(20px, 22px);
+        color: $clr-1;
+        font-weight: 700;
+        margin: 0 0 17px;
+    }
+    p{ margin: 0 0 30px; }
+    .txt{
+        @include font(11px, 14px);
+        color: $clr-1;
+        font-weight: 400;
+        display: block;
+        a{
+            text-decoration: underline;
+            transition: all 0.25s linear;
+            &:hover{
+                text-decoration: none;
+                color: $clr-3;
+            }
+        }
+    }
+}
+/*------------------------------------------------------------------
+25. Footer / #footer
+-------------------------------------------------------------------*/
+#footer{
+    font: 12px/26px $heading-font-family-sans;
+    font-weight: 300;
+    color: $clr-18;
+    overflow: hidden;
+    background: $clr-16;
+    .footer-area{
+        padding: 116px 0 93px;
+        background: $clr-17;
+        p{ margin: 0 0 29px; }
+    }
+    .heading{
+        color: $white;
+        margin: 0 0 35px;
+    }
+    .f-nav{
+        font: 13px/16px $heading-font-family-sans;
+        font-weight: 400;
+        color: $clr-18;
+        overflow: hidden;
+        margin: 0;
+        li{
+            overflow: hidden;
+            margin: 0 0 14px;
+        }
+        a{
+            color: $clr-18;
+            transition: all 0.25s linear;
+        }
+    }
+    .f-logo{
+        width: 78px;
+        margin: 0 0 40px;
+    }
+    .contact-list{
+        font: 13px/16px $heading-font-family-sans;
+        font-weight: 400;
+        color: $clr-20;
+        overflow: hidden;
+        margin: 0 0 16px;
+        li{
+            overflow: hidden;
+            margin: 0 0 14px;
+        }
+        .fa{
+            margin: 0 13px 0 0;
+        }
+        a{
+            color: $clr-20;
+            transition: all 0.25s linear;
+        }
+    }
+    .btn-primary{
+        @include font(12px, 14px);
+        font-weight: 600;
+        border-width: 1px;
+        border-style: solid;
+        padding: 15px 21px 15px 18px;
+        &:hover{ background: none; }
+    }
+    .copyright{
+        padding-top: 19px;
+        padding-bottom: 17px;
+        p{ margin: 0; }
+    }
+}
+/*------------------------------------------------------------------
+26. Back Top / #back-top
+-------------------------------------------------------------------*/
+#back-top {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	@include font(18px, 20px);
+    color: $white;
+    cursor: pointer;
+    float: right;
+    @include size(50px, 50px);
+    padding: 14px 0;
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s ease 0s;
+    &.active{
+    	opacity: 1;
+    	visibility: visible;
+    }
+}
+/*------------------------------------------------------------------
+27. Loader Holder / .loader-holder
+-------------------------------------------------------------------*/
+.loader-holder {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  position: fixed;
+  background-color: rgba($white, 0.9);
+  .block {
+	  top: 50%;
+	  left: 50%;
+	  position: absolute;
+	  transform: translate(-50%, -50%);
+	}
+}

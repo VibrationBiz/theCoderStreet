@@ -1,0 +1,58 @@
+// custom variables and override bootstrap variables
+
+//== Colors
+$black:											#000;
+$white:											#fff;
+$clr-1:											#373f46;
+$clr-2:											#26be66;
+$clr-3:											#8e9295;
+$clr-4:											#27ae60;
+$clr-5:											#8b939b;
+$clr-6:											#949fa8;
+$clr-7:											#d7d9da;
+$clr-8:											#f5f5f5;
+$clr-9:											#989b9d;
+$clr-10:										#afb2b4;
+$clr-11:										#8b949b;
+$clr-12:										#eeeeee;
+$clr-13:										#8d97a0;
+$clr-14:										#cccccc;
+$clr-15:										#919598;
+$clr-16:										#23292e;
+$clr-17:										#2b3136;
+$clr-18:										#c6c6c6;
+$clr-19:										#dadada;
+$clr-20:										#99a1a9;
+$clr-21:										#3b5998;
+$clr-22:										#0084b4;
+$clr-23:										#d34836;
+$clr-24:										#34526f;
+$clr-25:										#c41200;
+
+
+//== Scaffolding
+$text-color:									$clr-1;
+$link-color:									$clr-1;
+
+//== Typography
+$font-family-sans-serif:						'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$heading-font-family-sans:						'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-size-base:								14px;
+$line-height-base:								1.857;
+$headings-font-family:							$heading-font-family-sans;
+$headings-font-weight:							700;
+$headings-color:								$clr-1;
+
+
+
+//== Container sizes
+$container-lg:									1200px;
+
+//== Forms
+$input-bg:										$black;
+$input-color:									$black;
+//$input-border:								$clr11;
+$input-border-radius:							0;
+//$input-border-focus:							$clr3;
+$input-color-placeholder:						$black;
+$form-group-margin-bottom:						16px;
